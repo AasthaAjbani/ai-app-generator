@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI App Generator
 
-## Getting Started
+A metadata-driven application runtime that dynamically generates applications from JSON configurations.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project was built as part of the AI Software Engineer Internship assignment (Track A - AI App Generator).
+
+The application dynamically renders different UI components based on user-provided JSON configurations while handling invalid configurations gracefully.
+
+## Features
+
+### Dynamic Form Renderer
+
+Generate forms directly from JSON schemas.
+
+Supported field types:
+
+* Text
+* Email
+* Number
+* Password
+* Textarea
+* Select
+
+### Dynamic Table Renderer
+
+Generate responsive data tables from JSON configurations.
+
+### Dynamic Dashboard Renderer
+
+Generate dashboard cards and analytics views dynamically.
+
+### Multi-Component App Generation
+
+Render complete application pages containing:
+
+* Dashboards
+* Tables
+* Forms
+
+from a single JSON configuration.
+
+### Validation & Error Handling
+
+* Invalid JSON detection
+* Missing field validation
+* Unsupported component handling
+* Graceful failure without crashing the application
+
+## Example Configuration
+
+```json
+{
+  "title": "Admin Portal",
+  "components": [
+    {
+      "type": "dashboard",
+      "cards": [
+        {
+          "title": "Users",
+          "value": 120
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "columns": ["Name", "Role"],
+      "data": [
+        ["Aastha", "Frontend"]
+      ]
+    }
+  ]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Next.js
+* React
+* TypeScript
+* TailwindCSS
 
-## Learn More
+### Backend
 
-To learn more about Next.js, take a look at the following resources:
+* Next.js API Routes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Database
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* PostgreSQL (Neon)
+* Prisma ORM
 
-## Deploy on Vercel
+### Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```text
+app/
+├── page.tsx
+├── api/
+
+components/
+├── DynamicForm.tsx
+├── DynamicTable.tsx
+├── DynamicDashboard.tsx
+├── ComponentRenderer.tsx
+
+prisma/
+├── schema.prisma
+```
+
+## Architecture Decisions
+
+* Component-based rendering architecture
+* Configuration-driven UI generation
+* Reusable renderer components
+* Graceful handling of invalid configurations
+* Extensible design for future component types
+
+## Deployment
+
+The application is deployed on Vercel and connected to a Neon PostgreSQL database.
+
+## Future Improvements
+
+* Chart rendering
+* Workflow automation
+* Authentication
+* CSV import/export
+* Theme customization
+* Drag-and-drop app builder
+
+```
+```
+
